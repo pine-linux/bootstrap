@@ -11,29 +11,13 @@ fi
 echo "checking evn variables"
 echo "cloning package manager..."
 CC=gcc
-DEST_DIR=./pine
+current_dir=$(pwd)
+DEST_DIR="$current_dir/pine"
 git clone https://github.com/kisslinux/kiss.git ./package_man 
-export KISS_PATH="./temp_repos/core"
+export KISS_PATH="$current_dir/temp_repos/core"
 echo "creating $DEST_DIR"
-mkdir -p DEST_DIR
+mkdir -p $DEST_DIR
 echo "cloning repos"
 git clone https://github.com/pine-linux/repos temp_repos
 export KISS_ROOT=$DEST_DIR
-echo building musl
-./package_man/kiss b musl
-./package_man/kiss i musl
-echo building the shell
-./package_man/kiss b dash
-./package_man/kiss i dash
-echo building gcc
-./package_man b gcc
-./package_man/kiss i gcc
-echo building coreutils
 ./package_man/kiss b sbase
-./package_man/kiss i sbase
-./package_man/kiss b ubase
-./package_man/kiss i ubase
-echo build pkg manager
-./package_man/kiss b kiss
-./package_man/kiss i kiss
-

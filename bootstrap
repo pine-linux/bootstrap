@@ -28,3 +28,5 @@ export KISS_ROOT=$DEST_DIR
 ./package_man/kiss i ubase
 ./package_man/kiss b dash
 ./package_man/kiss i dash
+./package_man/kiss b musl
+./package_man/kiss i musl
